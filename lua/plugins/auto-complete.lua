@@ -18,6 +18,7 @@ return {
 		config = function()
 			local lspkind = require("lspkind")
 			require("luasnip.loaders.from_vscode").lazy_load()
+            require("luasnip.loaders.from_lua").lazy_load({paths = "~/.config/nvim/LuaSnip/"})
 
 			local has_words_before = function()
 				unpack = unpack or table.unpack
@@ -79,30 +80,6 @@ return {
 				-- 	end),
 				-- }),
                 
-                -- [from doc]
-				-- mapping = cmp.mapping.preset.insert({
-				-- 	["<Tab>"] = cmp.mapping(function(fallback)
-				-- 		if cmp.visible() then
-				-- 			cmp.select_next_item()
-				-- 		elseif luasnip.expand_or_locally_jumpable() then
-				-- 			luasnip.expand_or_jump()
-				-- 		elseif has_words_before() then
-				-- 			cmp.confirm({ select = false })
-				-- 		else
-				-- 			fallback()
-				-- 		end
-				-- 	end, { "i", "s" }),
-
-				-- 	["<S-Tab>"] = cmp.mapping(function(fallback)
-				-- 		if cmp.visible() then
-				-- 			cmp.select_prev_item()
-				-- 		elseif luasnip.jumpable(-1) then
-				-- 			luasnip.jump(-1)
-				-- 		else
-				-- 			fallback()
-				-- 		end
-				-- 	end, { "i", "s" }),
-				-- }),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },

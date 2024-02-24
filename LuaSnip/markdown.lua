@@ -312,7 +312,7 @@ return {
 			}
 		)
 	),
-    -- [Arrows]
+	-- [Arrows]
 	s(
 		{ trig = "rarrow" },
 		fmta(
@@ -374,8 +374,8 @@ return {
                 \xrightarrow{<>}
             ]],
 			{
-                i(1)
-            }
+				i(1),
+			}
 		)
 	),
 	s(
@@ -385,11 +385,74 @@ return {
                 \xRightarrow{<>}
             ]],
 			{
-                i(1)
-            }
+				i(1),
+			}
+		)
+	),
+	-- [Fences]
+	s(
+		{ trig = "langle" },
+		fmta(
+			[[
+                \langle <> \rangle
+            ]],
+			{
+				i(1),
+			}
+		)
+	),
+	s(
+		{ trig = "lceil" },
+		fmta(
+			[[
+                \lceil <> \rceil
+            ]],
+			{
+				i(0),
+			}
+		)
+	),
+	s(
+		{ trig = "lfloor" },
+		fmta(
+			[[
+                \lfloor <> \rfloor
+            ]],
+			{
+				i(0),
+			}
 		)
 	),
 	-- [Greek Letters]
+	s(
+		{ trig = "mathbb" },
+		fmta(
+			[[
+                \mathbb{<>}
+            ]],
+			{
+				i(1),
+			}
+		)
+	),
+	s(
+		{ trig = "forall" },
+		fmta(
+			[[
+                \forall
+            ]],
+			{}
+		)
+	),
+	s(
+		{ trig = "exists" },
+		fmta(
+			[[
+                \exists
+            ]],
+			{}
+		)
+	),
 	s(
 		{ trig = "infty" },
 		fmta(
@@ -548,51 +611,6 @@ return {
 		fmta(
 			[[
                 \partial
-            ]],
-			{}
-		)
-	),
-	s(
-		{ trig = "mu" },
-		fmta(
-			[[
-                \mu
-            ]],
-			{}
-		)
-	),
-	s(
-		{ trig = "nu" },
-		fmta(
-			[[
-                \nu
-            ]],
-			{}
-		)
-	),
-	s(
-		{ trig = "pi" },
-		fmta(
-			[[
-                \pi
-            ]],
-			{}
-		)
-	),
-	s(
-		{ trig = "rho" },
-		fmta(
-			[[
-                \rho
-            ]],
-			{}
-		)
-	),
-	s(
-		{ trig = "tau" },
-		fmta(
-			[[
-                \tau
             ]],
 			{}
 		)

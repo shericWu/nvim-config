@@ -24,6 +24,15 @@ return {
                     },
                     disable_command_mode = true,
                 },
+                ["'"] = {
+                    close = true,
+                    escape = false,
+                    pair = "''",
+                    disabled_filetypes = {
+                        "markdown",
+                    },
+                    disable_command_mode = false,
+                },
             },
         })
     end,

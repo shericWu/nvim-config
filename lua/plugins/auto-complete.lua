@@ -12,16 +12,6 @@ return {
 			"rafamadriz/friendly-snippets",
 		},
 
-		-- vim.cmd([[
-		-- " Use Tab to expand and jump through snippets
-		-- imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
-		-- smap <silent><expr> <Tab> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<Tab>'
-
-		-- " Use Shift-Tab to jump backwards through snippets
-		-- imap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<Tab>'
-		-- smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<Tab>'
-		-- ]]),
-
 		config = function()
 			require("luasnip").config.set_config({
 				enable_autosnippets = true,
@@ -34,15 +24,8 @@ return {
 
 		config = function()
 			local lspkind = require("lspkind")
-			require("luasnip.loaders.from_vscode").lazy_load()
+			-- require("luasnip.loaders.from_vscode").lazy_load()
 			require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/LuaSnip/" })
-
-			local has_words_before = function()
-				unpack = unpack or table.unpack
-				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-				return col ~= 0
-					and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-			end
 
 			local luasnip = require("luasnip")
 			local cmp = require("cmp")
@@ -58,34 +41,16 @@ return {
 					documentation = cmp.config.window.bordered(),
 				},
 
-				-- [works best]
-				-- mapping = cmp.mapping.preset.insert({
-				-- 	["<CR>"] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehaviorReplace }),
-				-- 	-- ["<CR>"] = luasnip.expand(),
-				-- 	["<Tab>"] = cmp.mapping(function(fallback)
-				-- 		if cmp.visible() then
-				-- 			cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-				-- 		else
-				-- 			fallback()
-				-- 		end
-				-- 	end, { "i", "s" }),
-				-- 	["<S-Tab>"] = cmp.mapping(function(fallback)
-				-- 		if cmp.visible() then
-				-- 			cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-				-- 		else
-				-- 			fallback()
-				-- 		end
-				-- 	end),
-				-- }),
-
-				-- [second try]
+				-- [good]
 				-- try to combine luasnip into it
 				mapping = cmp.mapping.preset.insert({
 					["<CR>"] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehaviorReplace }),
-					-- ["<CR>"] = luasnip.expand(),
 					["<Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
-							cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+							if #cmp.get_entries() == 1 then
+								cmp.confirm({ select = true, behavior = cmp.ConfirmBehaviorReplace })
+							end
+							cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
 						elseif luasnip.expand_or_jumpable() then
 							luasnip.expand_or_jump()
 						elseif luasnip.jumpable(1) then
@@ -98,6 +63,8 @@ return {
 					["<S-Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+						elseif luasnip.jumpable(-1) then
+							luasnip.jump_prev()
 						else
 							fallback()
 						end

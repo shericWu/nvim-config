@@ -10,32 +10,106 @@ local fmta = require("luasnip.extras.fmt").fmta
 local rep = require("luasnip.extras").rep
 
 return {
-	-- Example: how to set snippet parameters
-	-- require("luasnip").snippet(
-	-- 	{ -- Table 1: snippet parameters
-	-- 		trig = "hiab",
-	-- 		priority = 100,
-	-- 		-- snippetType="autosnippet"
-	-- 	},
-	-- 	{ -- Table 2: snippet nodes (don't worry about this for now---we'll cover nodes shortly)
-	-- 		t("Hello, world! AB!"), -- A single text node
-	-- 	}
-	-- 	-- Table 3, the advanced snippet options, is left blank.
-	-- ),
-	s({
-		trig = "tt",
-	}, {
-		t("\\texttt{"),
-		i(1),
-		t("}"),
-	}),
-	s({
-		trig = "ff",
-	}, {
-		t("\\frac{"),
-		i(1),
-		t("}{"),
-		i(2),
-		t("}"),
-	}),
+    -- [maths]
+	s(
+		{ trig = "mm" },
+		fmta(
+			[[
+                $$
+                    <>
+                $$
+            ]],
+			{
+				i(0),
+			}
+		)
+	),
+    -- [math functions]
+	s(
+		{ trig = "ff" },
+		fmta(
+			[[
+                \frac{<>}{<>}
+            ]],
+			{
+				i(1),
+				i(2),
+			}
+		)
+	),
+	s(
+		{ trig = "sqrt" },
+		fmta(
+			[[
+                \sqrt{<>}
+            ]],
+			{
+				i(1),
+			}
+		)
+	),
+	s(
+		{ trig = "sqrtN" },
+		fmta(
+			[[
+                \sqrt[<>]{<>}
+            ]],
+			{
+				i(1),
+                i(2),
+			}
+		)
+	),
+    -- [text]
+	s(
+		{ trig = "tt" },
+		fmta(
+			[[
+                \text{<>}
+            ]],
+			{ i(1) }
+		)
+	),
+	s(
+		{ trig = "spa" },
+		fmta(
+			[[
+                \ \ \ \ <>
+            ]],
+			{ i(0) }
+		)
+	),
+    -- [environment]
+	s(
+		{ trig = "env" },
+		fmta(
+			[[
+                \begin{<>}
+                    <>
+                \end{<>}
+            ]],
+			{
+				i(1),
+				i(2),
+				rep(1),
+			}
+		)
+	),
+	s(
+		{ trig = "cases" },
+		fmta(
+			[[
+                \begin{cases}
+                    <>  &<> \\
+                    <>  &<>
+                \end{cases}
+            ]],
+			{
+				i(1),
+				i(2),
+                i(3),
+                i(4)
+			}
+		)
+	),
 }

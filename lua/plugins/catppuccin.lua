@@ -8,6 +8,7 @@ return {
         catppuccin.setup({
             transparent_background = true,
         })
-        vim.cmd.colorscheme "catppuccin"
-    end
+        vim.cmd.colorscheme("catppuccin")
+        vim.cmd.highlight({ "LineNr", "guifg=#6c83ac" })
+    end,
 }

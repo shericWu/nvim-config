@@ -6,7 +6,7 @@ return {
             keys = {
                 ["$"] = {
                     close = true,
-                    escape = false,
+                    escape = true,
                     pair = "$$",
                     disabled_filetypes = {},
                     enabled_filetypes = {

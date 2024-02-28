@@ -15,6 +15,7 @@ return {
 					"lua_ls",
 					"clangd",
 					"marksman",
+					"bashls",
 				},
 			})
 		end,
@@ -34,6 +35,9 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.marksman.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.bashls.setup({
 				capabilities = capabilities,
 			})
 

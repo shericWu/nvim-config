@@ -10,6 +10,47 @@ local fmta = require("luasnip.extras.fmt").fmta
 local rep = require("luasnip.extras").rep
 
 return {
+	-- [html colors]
+	s(
+		{ trig = "colorRed" },
+		fmt(
+			[[
+                <font color=#D1616C> [] </font>
+            ]],
+			{ i(1) },
+			{ delimiters = "[]" }
+		)
+	),
+	s(
+		{ trig = "colorYellow" },
+		fmt(
+			[[
+                <font color=#EBCB8B> [] </font>
+            ]],
+			{ i(1) },
+			{ delimiters = "[]" }
+		)
+	),
+	s(
+		{ trig = "colorGreen" },
+		fmt(
+			[[
+                <font color=#A3BE8C> [] </font>
+            ]],
+			{ i(1) },
+			{ delimiters = "[]" }
+		)
+	),
+	s(
+		{ trig = "colorBlue" },
+		fmt(
+			[[
+                <font color=#88C0D0> [] </font>
+            ]],
+			{ i(1) },
+			{ delimiters = "[]" }
+		)
+	),
 	-- [maths]
 	s(
 		{ trig = "mm" },

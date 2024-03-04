@@ -10,47 +10,6 @@ local fmta = require("luasnip.extras.fmt").fmta
 local rep = require("luasnip.extras").rep
 
 return {
-	-- [html colors]
-	s(
-		{ trig = "colorRed" },
-		fmt(
-			[[
-                <font color=#D1616C> [] </font>
-            ]],
-			{ i(1) },
-			{ delimiters = "[]" }
-		)
-	),
-	s(
-		{ trig = "colorYellow" },
-		fmt(
-			[[
-                <font color=#EBCB8B> [] </font>
-            ]],
-			{ i(1) },
-			{ delimiters = "[]" }
-		)
-	),
-	s(
-		{ trig = "colorGreen" },
-		fmt(
-			[[
-                <font color=#A3BE8C> [] </font>
-            ]],
-			{ i(1) },
-			{ delimiters = "[]" }
-		)
-	),
-	s(
-		{ trig = "colorBlue" },
-		fmt(
-			[[
-                <font color=#88C0D0> [] </font>
-            ]],
-			{ i(1) },
-			{ delimiters = "[]" }
-		)
-	),
 	-- [maths]
 	s(
 		{ trig = "mm" },
@@ -331,7 +290,7 @@ return {
             ]],
 			{
 				i(1),
-				i(2),
+				i(0),
 				rep(1),
 			}
 		)
@@ -654,6 +613,112 @@ return {
                 \partial
             ]],
 			{}
+		)
+	),
+	-- [html colors]
+	s(
+		{ trig = "colorRed" },
+		fmt(
+			[[
+                <font color=#D1616C> [] </font>
+            ]],
+			{ i(1) },
+			{ delimiters = "[]" }
+		)
+	),
+	s(
+		{ trig = "colorYellow" },
+		fmt(
+			[[
+                <font color=#EBCB8B> [] </font>
+            ]],
+			{ i(1) },
+			{ delimiters = "[]" }
+		)
+	),
+	s(
+		{ trig = "colorGreen" },
+		fmt(
+			[[
+                <font color=#A3BE8C> [] </font>
+            ]],
+			{ i(1) },
+			{ delimiters = "[]" }
+		)
+	),
+	s(
+		{ trig = "colorBlue" },
+		fmt(
+			[[
+                <font color=#88C0D0> [] </font>
+            ]],
+			{ i(1) },
+			{ delimiters = "[]" }
+		)
+	),
+	-- [KATEX colors]
+	s(
+		{ trig = "mmRed" },
+		fmt(
+			[[
+                \textcolor{#D1616C}{<>}
+            ]],
+			{ i(1) },
+			{ delimiters = "<>" }
+		)
+	),
+	s(
+		{ trig = "mmYellow" },
+		fmt(
+			[[
+                \textcolor{#EBCB8B}{<>}
+            ]],
+			{ i(1) },
+			{ delimiters = "<>" }
+		)
+	),
+	s(
+		{ trig = "mmGreen" },
+		fmt(
+			[[
+                \textcolor{#A3BE8C}{<>}
+            ]],
+			{ i(1) },
+			{ delimiters = "<>" }
+		)
+	),
+	s(
+		{ trig = "mmBlue" },
+		fmt(
+			[[
+                \textcolor{#88C0D0}{<>}
+            ]],
+			{ i(1) },
+			{ delimiters = "<>" }
+		)
+	),
+	s(
+		{ trig = "plantuml_component" },
+		fmta(
+			[[
+                ```plantuml
+                    skinparam BackgroundColor transparent
+                    skinparam component {
+                        Style rectangle
+                        BackgroundColor #2e3440
+                        FontColor #ffffff
+                        ArrowColor #e5e9f0
+                        ArrowFontColor #eceff4
+                    }
+                    skinparam note {
+                        BackgroundColor #d8dee9
+                        FontColor #000000
+                    }
+
+                    <>
+                ```
+            ]],
+			{ i(0) }
 		)
 	),
 }

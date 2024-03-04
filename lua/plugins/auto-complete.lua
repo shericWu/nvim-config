@@ -46,7 +46,7 @@ return {
                 -- try to combine luasnip into it
                 mapping = cmp.mapping.preset.insert({
                     ["<CR>"] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehaviorReplace }),
-                    ["<C-d>"] = cmp.mapping.abort(),
+                    ["<C-L>"] = cmp.mapping.abort(),
                     ["<Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             if #cmp.get_entries() == 1 then

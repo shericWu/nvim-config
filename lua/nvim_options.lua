@@ -14,7 +14,8 @@ vim.opt.relativenumber = true
 vim.g.mapleader = " "
 
 -- set signcolumn behavior
-vim.opt.signcolumn = "number" -- or "yes:4"
+-- vim.opt.signcolumn = "number" -- or "yes:4"
+vim.opt.signcolumn = "yes"
 
 -- set the window for key pressed
 vim.opt.timeoutlen = 300

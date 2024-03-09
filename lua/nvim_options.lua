@@ -26,6 +26,9 @@ vim.opt.guicursor = "n-c:block,i-ci-ve:ver25-blinkwait700-blinkoff400-blinkon250
 -- ask when closing file with unsaved changes
 vim.opt.confirm = true
 
+-- save undo history after closing
+vim.opt.undofile=true
+
 -- keymap
 -- vim.keymap.set("n", "<C-b>n", "<cmd>bn<CR>", {})
 -- vim.keymap.set("n", "<C-b>p", "<cmd>bN<CR>", {})

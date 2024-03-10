@@ -18,4 +18,10 @@ return {
 			vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {})
 		end,
 	},
+    {
+        "sindrets/diffview.nvim",
+        config  = function()
+            require("diffview").setup()
+        end,
+    },
 }

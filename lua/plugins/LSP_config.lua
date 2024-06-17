@@ -64,9 +64,9 @@ return {
 
 			-- set shortcuts
 			--            vim.keymap.set({'n', 'v'}, '<leader>dd', vim.diagnostic.open_float, {})
-			--            vim.keymap.set('n', '<leader>hh', vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>df", vim.lsp.buf.definition, {})
 			vim.keymap.set("n", "<leader>dc", vim.lsp.buf.declaration, {})
+            -- vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			-- vim.keymap.set('n', '<leader>ip', vim.lsp.buf.implementation, {})
 			--            vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})

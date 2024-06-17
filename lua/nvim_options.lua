@@ -18,7 +18,7 @@ vim.g.mapleader = " "
 vim.opt.signcolumn = "yes"
 
 -- set the window for key pressed
-vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 200
 
 -- set cursor style
 vim.opt.guicursor = "n-c:block,i-ci-ve:ver25-blinkwait700-blinkoff400-blinkon250,r-cr-o-v-sm:hor20"
